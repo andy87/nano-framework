@@ -1,0 +1,33 @@
+{
+  "name": "andy87/nano-framework",
+  "type": "library",
+  "description": "Simple PHP Framework 'nano' v1",
+  "keywords": [
+    "nano",
+    "framework"
+  ],
+  "homepage": "https://www.php-nano-framework.com/",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Kidin Andrey",
+      "email": "mail@andy87.ru",
+      "homepage": "https://andy87.ru",
+      "role": "Founder and project lead"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/andy87/nano-framework/issues?state=open",
+    "source": "https://github.com/andy87/nano-framework"
+  },
+  "require": {
+    "php": ">=8.0.0"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "nano\\": "",
+      "framework\\": ""
+    }
+  }
+}

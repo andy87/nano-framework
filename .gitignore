@@ -1,0 +1,9 @@
+.idea/
+
+#Composer
+auth.json
+composer.lock
+composer.phar
+
+#vendors
+vendor/
