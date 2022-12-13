@@ -21,8 +21,10 @@ class Request extends \nano\Components\Core\Request implements RequestInterface
     /**
      *  Constructor
      */
-    public function __construct()
+    public function __construct(array $config = [])
     {
+        parent::__construct($config);
+
         $this->method = $this->findMethod();
 
         parent::__construct();

@@ -10,6 +10,8 @@ use nano\Interfaces\BaseObjectInterface;
  */
 interface ResponseInterface extends BaseObjectInterface
 {
+    public const FORMAT_RAW = 'raw';
+
     /**
      * @return mixed
      */

@@ -2,11 +2,10 @@
 
 # En
 Target:
-* fast, low size, expandable
-* minimum count of variables
+* fast
+* low size
+* expandable
 * Nice interaction interface
-* Null warning & Notice
-
 
 ## Application structure 
 
@@ -44,7 +43,7 @@ include "vendor/autoload.php";
 const DS = DIRECTORY_SEPARATOR;
 const ROOT = __DIR__;
 
-framework\Nano::init( require "config/main.php" )->run();
+framework\Nano::load( require "config/main.php" )->run();
 
 ```
 
@@ -53,7 +52,7 @@ framework\Nano::init( require "config/main.php" )->run();
 # Ru
 
 Цель:
-* быстрый, легковесный, расширяемый.
-* Минимум создаваемых переменных.
+* быстрый
+* легковесный
+* расширяемый
 * Приятный интерфейс взаимодействия
-* Отсутствие варнингов и уведомлений

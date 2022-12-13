@@ -29,9 +29,16 @@ abstract class Controller extends BaseObject implements ControllerInterface
     /**
      * @param RequestInterface $request
      * @param ActionInterface $action
+     * @param array $config
      */
-    public function __construct(RequestInterface $request, public ActionInterface $action)
+    public function __construct(
+        RequestInterface $request,
+        public ActionInterface $action,
+        array $config = []
+    )
     {
+        parent::__construct($config);
+
         $this->id = $request->id[CONTROLLER];
     }
 

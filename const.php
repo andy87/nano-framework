@@ -16,11 +16,13 @@ const ENV = 'environment';
 const NS = 'ns';
 const TPL = 'ns';
 const CATCH_ = 'catch';
+const FORMAT = 'format';
 
 const APP = 'app';
 const CONTROLLER = 'controller';
 const ACTION = 'action';
 const REQUEST = 'request';
+const RESPONSE = 'response';
 
 const VIEW = 'view';
 const LAYOUT = 'layout';

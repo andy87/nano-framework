@@ -13,12 +13,27 @@ use nano\Interfaces\Core\ControllerInterface;
  */
 class Response extends BaseObject implements ResponseInterface
 {
+    /** @var string response format */
+    public static string $format;
+
     /**
      * @param ControllerInterface $controller
+     * @param array $config
      */
-    public function __construct(protected ControllerInterface $controller)
+    public function __construct(protected ControllerInterface $controller, array $config = [] )
     {
+        parent::__construct($config);
+
         return $this;
+    }
+
+    /**
+     * @param string $format
+     * @return void
+     */
+    public static function setupFormat( string $format ): void
+    {
+        static::$format = $format;
     }
 
     /**
@@ -30,7 +45,7 @@ class Response extends BaseObject implements ResponseInterface
         $action = $this->controller->getActionID();
 
         if ( !method_exists($this->controller, $action) ) {
-            throw new ActionNotFoundException();
+            throw new ActionNotFoundException($action);
         }
 
         return $this->controller->{$action}();

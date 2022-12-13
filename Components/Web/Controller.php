@@ -28,13 +28,21 @@ abstract class Controller extends \nano\components\Core\Controller implements Co
     // Methods
 
     /**
+     *  Constructor
+     *
      * @param RequestInterface $request
      * @param ActionInterface $action
      * @param ViewInterface $view
+     * @param array $config
      */
-    public function __construct(RequestInterface $request, ActionInterface $action, public ViewInterface $view)
+    public function __construct(
+        RequestInterface $request,
+        ActionInterface $action,
+        public ViewInterface $view,
+        array $config = []
+    )
     {
-        parent::__construct($request, $action);
+        parent::__construct($request, $action, $config);
 
         $view->baseDir = $request->ns . $this->transformAny2SnakeCase($request->id[CONTROLLER]);
     }

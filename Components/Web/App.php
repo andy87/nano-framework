@@ -3,6 +3,7 @@
 namespace nano\Components\Web;
 
 use framework\Nano;
+use nano\Exceptions\ActionNotFoundException;
 use nano\Exceptions\ControllerNotFoundException;
 use nano\Interfaces\Web\AppInterface;
 use nano\Interfaces\Web\ViewInterface;
@@ -35,24 +36,38 @@ class App extends \nano\Components\Core\App implements AppInterface
     // Methods
 
     /**
-     * Constructor
+     *  Constructor
+     *
+     * @param array $config
+     *
      * @throws ControllerNotFoundException
+     *
+     * @return self
      */
-    function __construct()
+    function __construct(array $config = [])
     {
+        parent::__construct($config);
+
         $this->setupView();
 
-        return parent::__construct();
+        return $this;
     }
 
     /**
      * Запуск приложения
      *
      * @return void
+     *
+     * @throws ActionNotFoundException
      */
     public function run(): void
     {
-        echo (new Response($this->controller))->result();
+        /** @var Response $responseClass */
+        $responseClass = Nano::findClass(RESPONSE);
+
+        $responseClass::setupFormat($this->getResponseFormat());
+
+        echo (new $responseClass($this->controller))->result();
     }
 
     /**
@@ -73,7 +88,7 @@ class App extends \nano\Components\Core\App implements AppInterface
     protected function setupController(): void
     {
         if ( !class_exists($controllerClass = $this->getControllerClass()) ) {
-            throw new ControllerNotFoundException();
+            throw new ControllerNotFoundException($controllerClass);
         }
 
         $this->controller = new $controllerClass(

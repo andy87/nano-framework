@@ -13,9 +13,10 @@ class Action extends \nano\Components\Core\Controllers\Action implements ActionI
 {
     /**
      * @param RequestInterface $request
+     * @param array $config
      */
-    public function __construct(RequestInterface $request)
+    public function __construct(RequestInterface $request, array $config = [])
     {
-        parent::__construct($request);
+        parent::__construct($request, $config);
     }
 }

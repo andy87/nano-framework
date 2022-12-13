@@ -46,8 +46,10 @@ class View extends BaseObject implements ViewInterface
     /**
      *  Constructor
      */
-    public function __construct()
+    public function __construct(array $config = [])
     {
+        parent::__construct($config);
+
         $this->layout = Nano::$config[TPL][LAYOUT] ?? false;
     }
 

@@ -49,8 +49,10 @@ class Request extends BaseObject implements RequestInterface
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(array $config = [])
     {
+        parent::__construct($config);
+
         $this->setupQuery(
             $this->findQuery()
         );

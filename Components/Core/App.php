@@ -27,7 +27,9 @@ class App extends BaseObject implements AppInterface
     protected const SIDE = 'console';
 
 
+
     // Property
+
     /** @var RequestInterface $request */
     public RequestInterface $request;
 
@@ -39,11 +41,17 @@ class App extends BaseObject implements AppInterface
 
     /**
      * Constructor
+     *
+     * @param array $config
+     *
      * @throws ControllerNotFoundException
-     * @return $this
+     *
+     * @return self
      */
-    function __construct()
+    function __construct( array $config = [] )
     {
+        parent::__construct($config);
+
         $this->setupRequest();
 
         $this->setupController();
@@ -56,7 +64,10 @@ class App extends BaseObject implements AppInterface
      */
     public function setupRequest(): void
     {
-        $this->request = Nano::getComponent(REQUEST);
+        /** @var RequestInterface $request */
+        $request = Nano::getComponent(REQUEST);
+
+        $this->request = $request;
     }
 
     /**
@@ -68,7 +79,7 @@ class App extends BaseObject implements AppInterface
         $controllerClass = $this->getControllerClass();
 
         if ( !class_exists($controllerClass, false) ) {
-            throw new ControllerNotFoundException();
+            throw new ControllerNotFoundException($controllerClass);
         }
 
         $this->controller = new $controllerClass( $this->request, $this->constructAction() );
@@ -97,6 +108,13 @@ class App extends BaseObject implements AppInterface
     {
         return $this->controller;
     }
+    /**
+     * @return string
+     */
+    public function getResponseFormat(): string
+    {
+        return Nano::$config[RESPONSE][FORMAT];
+    }
 
 
     /**
@@ -107,7 +125,12 @@ class App extends BaseObject implements AppInterface
      */
     public function run(): void
     {
-        (new Response($this->controller))->result();
+        /** @var Response $responseClass */
+        $responseClass = Nano::findClass(RESPONSE);
+
+        $responseClass::setupFormat($this->getResponseFormat());
+
+        (new $responseClass($this->controller))->result();
     }
 
 

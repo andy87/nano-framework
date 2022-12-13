@@ -3,6 +3,7 @@
 namespace framework;
 
 use nano\Components\BaseObject;
+use nano\Components\Web\App;
 use nano\Interfaces\BaseObjectInterface;
 use nano\Interfaces\Core\AppInterface;
 
@@ -41,11 +42,10 @@ class Nano extends BaseObject
      *
      *  First call on App.
      *
-     * @param string $appClass AppInterface
      * @param array $configs
      * @return AppInterface
      */
-    public static function init(array $configs = []): AppInterface
+    public static function load(array $configs = []): AppInterface
     {
         self::checkPhpVersion();
 
@@ -54,7 +54,10 @@ class Nano extends BaseObject
             static::$config = self::merge(static::$config, $config);
         }
 
-        static::$app = static::getComponent(APP);
+        /** @var App $app */
+        $app = static::getComponent(APP);
+
+        static::$app = $app;
 
         return static::$app;
     }

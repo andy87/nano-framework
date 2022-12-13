@@ -19,9 +19,12 @@ class Action extends BaseObject implements ActionInterface
 
     /**
      * @param RequestInterface $request
+     * @param array $config
      */
-    public function __construct(RequestInterface $request)
+    function __construct(RequestInterface $request, array $config = [] )
     {
+        parent::__construct($config);
+
         $this->id = $request->id[ACTION];
     }
 

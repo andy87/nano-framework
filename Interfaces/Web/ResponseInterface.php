@@ -11,7 +11,6 @@ interface ResponseInterface extends \nano\Interfaces\Core\ResponseInterface
 
     public const FORMAT_HTML = 'html';
     public const FORMAT_JSON = 'json';
-    public const FORMAT_RAW = 'raw';
 
     /**
      * @return mixed

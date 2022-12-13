@@ -16,7 +16,7 @@ class NotFoundException extends NanoException
     /**
      * @param string $target
      */
-    public function __construct(string $target)
+    public function __construct(string $target = 'n\a')
     {
         parent::__construct();
 

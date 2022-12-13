@@ -18,9 +18,6 @@ class Response extends \nano\components\Core\Response implements ResponseInterfa
     /** @var string response charset */
     public static string $charset = self::DEFAULT_CHARSET;
 
-    /** @var string response format */
-    public static string $format = self::FORMAT_HTML;
-
     /** @var array browser headers */
     public static array $headers = [];
 
@@ -36,13 +33,16 @@ class Response extends \nano\components\Core\Response implements ResponseInterfa
     // Methods
 
     /**
-     * Constructor
+     *  Constructor
      *
      * @param ControllerInterface $controller
+     * @param array $config
+     *
+     * @return void
      */
-    public function __construct(ControllerInterface $controller)
+    public function __construct(ControllerInterface $controller, array $config = [])
     {
-        parent::__construct($controller);
+        parent::__construct($controller, $config);
     }
 
 
@@ -57,7 +57,7 @@ class Response extends \nano\components\Core\Response implements ResponseInterfa
         $action = $this->controller->getActionID();
 
         if ( !method_exists($this->controller, $action) ) {
-            throw new ActionNotFoundException();
+            throw new ActionNotFoundException($action);
         }
 
         $result = $this->controller->{$action}();
