@@ -45,6 +45,8 @@ abstract class Controller extends \nano\components\Core\Controller implements Co
         parent::__construct($request, $action, $config);
 
         $view->baseDir = $request->ns . $this->transformAny2SnakeCase($request->id[CONTROLLER]);
+
+        $this->init();
     }
 
     /**

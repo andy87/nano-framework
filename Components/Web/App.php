@@ -50,6 +50,8 @@ class App extends \nano\Components\Core\App implements AppInterface
 
         $this->setupView();
 
+        $this->init();
+
         return $this;
     }
 

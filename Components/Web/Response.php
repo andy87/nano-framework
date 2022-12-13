@@ -43,6 +43,8 @@ class Response extends \nano\components\Core\Response implements ResponseInterfa
     public function __construct(ControllerInterface $controller, array $config = [])
     {
         parent::__construct($controller, $config);
+
+        $this->init();
     }
 
 
@@ -60,11 +62,15 @@ class Response extends \nano\components\Core\Response implements ResponseInterfa
             throw new ActionNotFoundException($action);
         }
 
-        $result = $this->controller->{$action}();
+        $this->controller->beforeAction($action);
+
+        $response = $this->controller->{$action}();
+
+        $this->controller->afterAction($action);
 
         $this->setHeaders();
 
-        return (static::$format === static::FORMAT_JSON) ? json_encode($result) : $result;
+        return (static::$format === static::FORMAT_JSON) ? json_encode($response) : $response;
     }
 
     /**

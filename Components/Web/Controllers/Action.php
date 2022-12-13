@@ -18,5 +18,7 @@ class Action extends \nano\Components\Core\Controllers\Action implements ActionI
     public function __construct(RequestInterface $request, array $config = [])
     {
         parent::__construct($request, $config);
+
+        $this->init();
     }
 }
