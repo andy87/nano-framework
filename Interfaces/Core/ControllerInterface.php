@@ -22,4 +22,19 @@ interface ControllerInterface extends BaseObjectInterface
      * @return string
      */
     public function getActionID(): string;
+
+    /**
+     * @param string $action_id
+     *
+     * @return void
+     */
+    public function beforeAction(string $action_id): void;
+
+    /**
+     * @param string $action_id
+     *
+     * @return void
+     */
+    public function afterAction(string $action_id): void;
+
 }

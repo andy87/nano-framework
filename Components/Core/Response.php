@@ -47,7 +47,12 @@ class Response extends BaseObject implements ResponseInterface
         if ( !method_exists($this->controller, $action) ) {
             throw new ActionNotFoundException($action);
         }
+        $this->controller->beforeAction($action);
 
-        return $this->controller->{$action}();
+        $response = $this->controller->{$action}();
+
+        $this->controller->afterAction($action);
+
+        return $response;
     }
 }
