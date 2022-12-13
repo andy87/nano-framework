@@ -21,7 +21,7 @@ class View extends BaseObject implements ViewInterface
     // Constants
 
     /** @var string extension template files */
-    private const TEMPLATE_EXT = 'php';
+    protected const TEMPLATE_EXT = 'php';
 
     /** @var string  */
     public const DIR = '~views';

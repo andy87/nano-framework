@@ -46,9 +46,9 @@ class App extends \nano\Components\Core\App implements AppInterface
      */
     function __construct(array $config = [])
     {
-        parent::__construct($config);
-
         $this->setupView();
+
+        parent::__construct($config);
 
         $this->init();
 
