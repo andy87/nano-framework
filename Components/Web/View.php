@@ -5,6 +5,7 @@ namespace nano\Components\Web;
 use framework\Nano;
 use nano\Components\BaseObject;
 use nano\Exceptions\TemplateNotFoundException;
+use nano\Interfaces\Core\Enums\Charset;
 use nano\Interfaces\Web\ViewInterface;
 
 use function ob_end_flush;
@@ -31,7 +32,10 @@ class View extends BaseObject implements ViewInterface
     // Property
 
     /** @var string property for use on layout to tag <title> */
-    public static string $title = '';
+    public static string $charset;
+
+    /** @var string property for use on layout to tag <title> */
+    public static string $title;
 
     /** @var ?string used layout file name */
     public ?string $layout;
@@ -51,6 +55,10 @@ class View extends BaseObject implements ViewInterface
         parent::__construct($config);
 
         $this->layout = Nano::$config[TPL][LAYOUT] ?? false;
+
+        self::$title = Nano::$config[VIEW][TITLE] ?? '';
+
+        self::$charset = Nano::$config[VIEW][CHARSET] ?? Charset::UTF_8;
 
         $this->init();
     }

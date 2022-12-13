@@ -17,6 +17,8 @@ const NS = 'ns';
 const TPL = 'ns';
 const CATCH_ = 'catch';
 const FORMAT = 'format';
+const CHARSET = 'charset';
+const TITLE = 'title';
 
 const APP = 'app';
 const CONTROLLER = 'controller';
