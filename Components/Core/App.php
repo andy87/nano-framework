@@ -21,12 +21,6 @@ use nano\Interfaces\Core\Controllers\ActionInterface;
  */
 class App extends BaseObject implements AppInterface
 {
-    // Const
-
-    /** @var string */
-    protected const SIDE = 'console';
-
-
 
     // Property
 

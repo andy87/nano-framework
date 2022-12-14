@@ -8,6 +8,7 @@
 const DS = DIRECTORY_SEPARATOR; // ...
 const BS = '\\';                // BackSlash
 
+const SYSTEM32 = __DIR__;
 
 /**
  * Named

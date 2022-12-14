@@ -43,9 +43,10 @@ class Nano extends BaseObject
      *  First call on App.
      *
      * @param array $configs
+     *
      * @return AppInterface
      */
-    public static function load(array $configs = []): AppInterface
+    public static function setup(array $configs = []): AppInterface
     {
         self::checkPhpVersion();
 
@@ -65,6 +66,7 @@ class Nano extends BaseObject
     /**
      * @param array $parent
      * @param array $children
+     *
      * @return array
      */
     public static function merge( array $parent, array $children )
@@ -102,6 +104,7 @@ class Nano extends BaseObject
      * get path to directory by ID on context "config"
      *
      * @param string $id
+     *
      * @return ?string
      */
     public static function dir(string $id ): ?string
@@ -113,6 +116,7 @@ class Nano extends BaseObject
      * get system component by ID on context "config"
      *
      * @param $id
+     *
      * @return ?BaseObjectInterface
      */
     public static function getComponent($id): ?BaseObjectInterface
@@ -122,8 +126,10 @@ class Nano extends BaseObject
 
     /**
      * get `class name` from "config"
+     *
      * @param string $id
      * @param null $default
+     *
      * @return ?string
      */
     public static function findClass(string $id, $default = NULL): ?string
@@ -137,6 +143,7 @@ class Nano extends BaseObject
      * @param string $group
      * @param string $id
      * @param ?string $default
+     *
      * @return ?string
      */
     public static function cfg(string $group, string $id, ?string $default = null ): ?string

@@ -20,12 +20,6 @@ use nano\Interfaces\Web\Controllers\ActionInterface;
  */
 class App extends \nano\Components\Core\App implements AppInterface
 {
-    // Const
-
-    /** @var string */
-    protected const SIDE = 'web';
-
-
     // Property
 
     /** @var ViewInterface $view */
