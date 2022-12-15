@@ -14,6 +14,7 @@ const VIEW_SERVER_INFO = __DIR__ . DS . 'Views' . DS . 'server-info';
 /**
  * Named
  */
+const NANO = 'nano';
 const ENV = 'environment';
 const NS = 'ns';
 const TPL = 'tpl';

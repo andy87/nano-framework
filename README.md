@@ -1,4 +1,8 @@
+<img align='center' src="Docs/background.jpg" style="max-width: 100%;">
+
 # simple PHP framework 'nano'.
+
+
 
 #### Fast start with 
 > [nano-application](https://github.com/andy87/nano-app/)
