@@ -1,0 +1,3 @@
+# class 'View'
+
+**Side**: Core
