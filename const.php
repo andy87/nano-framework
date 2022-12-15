@@ -8,14 +8,15 @@
 const DS = DIRECTORY_SEPARATOR; // ...
 const BS = '\\';                // BackSlash
 
-const SYSTEM32 = __DIR__;
+const VIEW_CATCH = __DIR__ . DS . 'Views' . DS . 'catch';
+const VIEW_SERVER_INFO = __DIR__ . DS . 'Views' . DS . 'server-info';
 
 /**
  * Named
  */
 const ENV = 'environment';
 const NS = 'ns';
-const TPL = 'ns';
+const TPL = 'tpl';
 const CATCH_ = 'catch';
 const FORMAT = 'format';
 const CHARSET = 'charset';

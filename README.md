@@ -53,7 +53,7 @@ framework\Nano::setup([
 - [📄 Structure](Docs/en/structure.md) <sup>[(rus)](Docs/ru/structure.md)</sup>
 - [📄 Endpoint](Docs/en/endpoint.md) <sup>[(rus)](Docs/ru/endpoint.md)</sup>
 - [📄 Config](Docs/en/config.md) <sup>[(rus)](Docs/ru/config.md)</sup>
-- [📄 Controllers](Docs/en/config.md) <sup>[(rus)](Docs/ru/config.md)</sup>
+- [📄 Controllers](Docs/en/controller.md) <sup>[(rus)](Docs/ru/controller.md)</sup>
 
 
 # Ru
