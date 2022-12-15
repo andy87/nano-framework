@@ -1,5 +1,8 @@
 # simple PHP framework 'nano'.
 
+#### Fast start with 
+> [nano-application](https://github.com/andy87/nano-app/)
+
 # En
 * fast, low size, easy expand
 * Nice interaction interface
@@ -60,7 +63,9 @@ framework\Nano::setup([
 
 * быстрый, мало "весит", легко расширяемый
 * Приятный интерфейс взаимодействия (субъективно)  
-
+* 
+#### Быстрый старт с 
+> [шаблоном приложения](https://github.com/andy87/nano-app/)
 
 #### Цель фреймворка: 
 > Быстрое создание простых сайтов и прототипов
