@@ -1,4 +1,4 @@
-<img align='center' src="Docs/background.jpg" style="max-width: 100%;">
+<p align='center'><img align='center' src="https://github.com/andy87/nano-framework/raw/master/Docs/background.jpg" style="max-width: 100%;"></p>
 
 # simple PHP framework 'nano'.
 
@@ -9,7 +9,7 @@
 
 # En
 * fast, low size, easy expand
-* Nice interaction interface
+* Nice interaction interface (subjectively)
 
 
 ## Application structure 
@@ -67,7 +67,7 @@ framework\Nano::setup([
 
 * быстрый, мало "весит", легко расширяемый
 * Приятный интерфейс взаимодействия (субъективно)  
-* 
+
 #### Быстрый старт с 
 > [шаблоном приложения](https://github.com/andy87/nano-app/)
 
