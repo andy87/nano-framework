@@ -10,6 +10,8 @@ use nano\Interfaces\Core\ControllerInterface;
 /**
  *  class `Response`
  *      env( Core )
+ *
+ * @property ControllerInterface $controller
  */
 class Response extends BaseObject implements ResponseInterface
 {
@@ -42,16 +44,19 @@ class Response extends BaseObject implements ResponseInterface
      */
     public function result(): mixed
     {
-        $action = $this->controller->getActionID();
-
-        if ( !method_exists($this->controller, $action) ) {
-            throw new ActionNotFoundException($action);
+        if ( !method_exists($this->controller, $this->controller->action->id) ) {
+            throw new ActionNotFoundException($this->controller->action->id);
         }
-        $this->controller->beforeAction($action);
 
-        $response = $this->controller->{$action}();
+        $this->controller->beforeAction($this->controller->action->id);
 
-        $this->controller->afterAction($action);
+        $response = call_user_func_array([
+                $this->controller,
+                $this->controller->action->id
+            ], $this->controller->action->getArguments()
+        );
+
+        $this->controller->afterAction($this->controller->action->id);
 
         return $response;
     }

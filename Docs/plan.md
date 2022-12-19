@@ -42,12 +42,15 @@ Nano::class {
       controller => Nano::$app->controller
     )
     ->run(){
-      $action = $rhis->controller->action;
+
+      $action = $this->controller->action->getId();
+
       call_method(
         $this->controller,
         $action->id,
         $action->arguments ?? null
       );
+
     }
   }
 }

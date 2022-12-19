@@ -89,7 +89,7 @@ class App extends \nano\Components\Core\App implements AppInterface
 
         $this->controller = new $controllerClass(
             $this->request,
-            $this->constructAction(),
+            $this->constructAction($this->request),
             $this->view
         );
     }

@@ -42,7 +42,7 @@ class App extends BaseObject implements AppInterface
      *
      * @return self
      */
-    function __construct( array $config = [] )
+    function __construct(array $config = [])
     {
         parent::__construct($config);
 
@@ -76,7 +76,9 @@ class App extends BaseObject implements AppInterface
             throw new ControllerNotFoundException($controllerClass);
         }
 
-        $this->controller = new $controllerClass( $this->request, $this->constructAction() );
+        $action = $this->constructAction($this->request);
+
+        $this->controller = new $controllerClass($this->request, $action );
     }
 
     /**
@@ -129,10 +131,13 @@ class App extends BaseObject implements AppInterface
 
 
     /**
+     * @param RequestInterface $request
      * @return ActionInterface
      */
-    protected function constructAction(): ActionInterface
+    protected function constructAction(RequestInterface $request): ActionInterface
     {
-        return new (Nano::findClass(ACTION))($this->request);
+        $actionClass = Nano::findClass(ACTION);
+
+        return new $actionClass($request);
     }
 }

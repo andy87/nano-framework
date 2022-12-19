@@ -19,4 +19,9 @@ interface ActionInterface extends BaseObjectInterface
      * @return string
      */
     public function getID(): string;
+
+    /**
+     * @return ?array
+     */
+    public function getArguments(): ?array;
 }
